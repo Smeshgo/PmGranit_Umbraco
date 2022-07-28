@@ -1,0 +1,77 @@
+﻿@{
+	Layout = "master.cshtml";
+}
+      <main class="main">
+        <!-- "Хлебные крошки" -->
+        <div class="breadcrumbs works-breadcrumbs">
+          <div class="container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__list-item">
+                <a class="breadcrumbs__list-link" href="index.html">Головна</a>
+              </li>
+              <li class="breadcrumbs__list-item">
+                <a class="breadcrumbs__list-link" href="#">Інші види робіт</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Блок с другими типами работ -->
+        <div class="work-types">
+          <div class="container">
+            <div class="work-types__block design-section__block">
+              <div class="design-section__column">
+                <a class="design-section__item" href="#">
+                  <div class="design-section__item-image">
+                    <img src="./images/work-types/work-types-image1.jpg" alt="Сходи">
+                  </div>
+                  <p class="design-section__item-title">Сходи</p>
+                </a>
+              </div>
+              <div class="design-section__column">
+                <a class="design-section__item" href="#">
+                  <div class="design-section__item-image">
+                    <img src="./images/work-types/work-types-image2.jpg" alt="Підвіконня">
+                  </div>
+                  <p class="design-section__item-title">Підвіконня</p>
+                </a>
+              </div>
+              <div class="design-section__column">
+                <a class="design-section__item" href="#">
+                  <div class="design-section__item-image">
+                    <img src="./images/work-types/work-types-image3.jpg" alt="Стільниці">
+                  </div>
+                  <p class="design-section__item-title">Стільниці<br> ( кухонні, ванні )</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+              <div class="container">
+                <div class="pagination__inner">
+                  <a class="pagination__button prev" href="#" aria-label="Попередній розділ"></a>
+                  <ul class="pagination__list">
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link active" href="#">1</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">2</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">3</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">...</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">12</a>
+                    </li>
+                  </ul>
+                  <a class="pagination__button next" href="#" aria-label="Наступний розділ"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>

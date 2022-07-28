@@ -1,0 +1,87 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<OHome>
+@{
+    //var rootNodes = Umbraco.ContentAtRoot().FirstOrDefault();
+    //var b = rootNodes.ContentType.Alias;
+    //var headerStyle = rootNodes.ContentType.Alias == "oHome" ? "absolute" : "";
+    var absolute = Model.Name == "PmGranit" ? "absolute" : string.Empty;
+    
+    //var t = Model.OHeaderLogo != null ? Model.OHeaderLogo.Url() : string.Empty;
+    
+    var a = Model.OHeaderMenuSocialLinks.First().OIcon!= null ? Model.OHeaderMenuSocialLinks.First().OIcon.LocalCrops.ToString() : string.Empty;
+
+    var logoImg = Model.OHeaderLogo != null ? Model.OHeaderLogo.LocalCrops.ToString() : string.Empty;
+
+}
+<div class="header-wrap">
+  <header class="header @absolute ">
+    <div class="header__inner">
+      <div class="container">
+        <div class="header__content">
+          <div class="header__top">
+            <a class="header__logo" href="index.html">
+              <img src="@logoImg" alt="Граніт логотип">
+            </a>
+              <div class="header__phones">
+                  @foreach (var phoneNumber in Model.OPhoneNumber)
+                  {
+                      <a class="header__phone hover-link" href="tel:@phoneNumber.Replace("+","")">@phoneNumber</a>
+                  }
+              </div>
+            <div class="header__times">
+              <p class="header__time">Пн-Пт 9:00-18:00;</p>
+              <p class="header__time">Сб 9:00-15:00;</p>
+            </div>
+              <ul class="header__socials">
+                  @foreach (var socialLink in Model.OHeaderMenuSocialLinks)
+                  {
+                       <li class="header__socials-item">
+                           <a class="header__socials-link hover-link" href="@socialLink.OUrl.First()" target="_blank" aria-label="">
+                               
+                               <img src="@socialLink.OIcon.LocalCrops.Src" alt="@socialLink.OIcon.Content.Name">
+                           </a>
+                  </li>
+                  }
+              </ul>
+              <button class="header__burger" type="button" aria-label="Кнопка бургер-меню">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
+          <nav class="header__navigation" id="header-navigation">
+            <ul class="header__menu">
+              <li class="header__menu-item">
+                <a class="header__menu-link active" href="#">Головна</a>
+              </li>
+              <li class="header__menu-item header__menu-subitem">
+                <a class="header__menu-link" href="#">Пам’ятники</a>
+                <ul class="header__submenu">
+                  <li class="header__submenu-item">
+                    <a class="header__submenu-link" href="#">Одинарні</a>
+                  </li>
+                  <li class="header__submenu-item">
+                    <a class="header__submenu-link" href="#">Подвійні</a>
+                  </li>
+                  <li class="header__submenu-item">
+                    <a class="header__submenu-link" href="#">Елітні</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="header__menu-item">
+                <a class="header__menu-link" href="#">Дизайн пам’ятнику</a>
+              </li>
+              <li class="header__menu-item">
+                <a class="header__menu-link" href="#">Інші види робіт</a>
+              </li>
+              <li class="header__menu-item">
+                <a class="header__menu-link" href="#">Статті</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>

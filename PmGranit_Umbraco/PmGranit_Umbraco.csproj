@@ -4,9 +4,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Remove="Views\articles.cshtml" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="OskiStarterKit" Version="1.0.0" />
@@ -20,9 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\Oski-assets\css\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Views\articles.cshtml" />
   </ItemGroup>
 
 

@@ -1,0 +1,49 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+  //Layout = null;
+//var rootNodes = Umbraco.ContentAtRoot();
+    //var model = (OHome) Model.Root();
+}
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>"Граніт" - Головна сторінка</title>
+  <link rel="stylesheet" href="~/css/libs.min.css">
+  <link rel="stylesheet" href="~/css/style.css">
+
+  <style>
+    :root {
+      --block-bg: #333232;
+      --element-bg: #B4B3B3;
+      --scroll-bg: #252525;
+      --scroll-cursor: #F4AD4E;
+    }
+
+    .green-theme {
+      --block-bg: #7EA36E;
+      --element-bg: #21630A;
+      --scroll-bg: #21630A;
+      --scroll-cursor: #7EA36E;
+    }
+  </style>
+</head>
+
+<body class="green-theme1">
+  <div class="wrapper">
+    @Html.Partial("Partials/OHeader")
+    @RenderBody()
+    @Html.Partial("Partials/OFooter")
+    
+  </div>
+  <script src="~/js/libs.min.js"></script>
+  <script src="~/js/main.js"></script>
+</body>
+
+</html>

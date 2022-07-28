@@ -1,0 +1,252 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<OHome>
+@{
+    Layout = "master.cshtml";
+    
+    var topContet  = Model.MainTop!.FirstOrDefault();
+    var categoryMemorial = Model.CategoryMemorial!.FirstOrDefault();
+    var categoryOther = Model.CategoryOther!.FirstOrDefault();
+    var numberPhoto = 1;
+}
+
+      <main class="main">
+        <!-- Первая секция -->
+        <section class="main-top">
+          <div class="main-top__gallery">
+              <div class="main-top__left">
+                  @foreach (var leftPhoto in topContet.LeftPhoto)
+                  {
+                      <div class="@($"main-top__left-image{numberPhoto}")">
+                          <img src="@leftPhoto.LocalCrops.Src" alt="@leftPhoto.Content.Name">
+                      </div>
+                      numberPhoto += 1;
+                  }
+              </div>
+            <div class="main-top__right">
+              <img src="@topContet.RightPhoto.LocalCrops.Src" alt="@topContet.RightPhoto.Content.Name">
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="main-top__content">
+              <h1 class="main-top__title"><span>@topContet.Title</span></h1>
+                <ul class="main-top__list">
+                    @foreach (var benefits in topContet.Benefits)
+                    {
+                        <li class="main-top__list-item">@benefits</li>
+                    }
+                </ul>
+              <a class="main-top__link link-filled" href="@topContet.CatalogLink.Url">@topContet.CatalogLink.Name</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Про нас" -->
+        <section class="main-about">
+          <div class="container">
+            <div class="main-about__heading section-heading">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">Про нас</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-about__content">
+              <p class="main-about__text">Нам Дуже приємно, що Ви завітали на нашу сторінку. Це вказує на те, що ви потребуєтеся у наших послугах. Досвід не дається нікому відразу, а накопичується з роками. Тому, ми вважаємо, що вислів “від діда до батька, від батька до сина” є запорукою успіху.</p>
+              <p class="main-about__text">Основним видом діяльності нашої родинної майстерні є виготовлення надмогильних пам’ятників. Проте, Ви також можете замовити сходи, підвіконня, стільниці (кухонні,ванні) та інші речі, які можна виконати з граніту. Виготовлення пам’ятників включає весь комплекс послуг - від замовлення – до його встановлення на цвинтарі.</p>
+              <a class="main-about__link link-outlined" href="#">Дізнатись більше</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Памятники" -->
+        <section class="main-memorials">
+          <div class="container">
+            <div class="main-memorials__heading section-heading">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">@categoryMemorial!.Title</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-memorials__slider">
+                <div class="main-memorials__block memorial-block">
+                    @foreach (var photoMemorial in categoryMemorial.Category!)
+                    {
+                        <div class="memorial-block__column">
+                            <a class="memorial-block__item" href="@photoMemorial.CategoryUrl.Url">
+                                <div class="memorial-block__item-image bottom">
+                                    <img src="@photoMemorial.CategoryPhoto.LocalCrops.Src" alt="@photoMemorial.CategoryPhoto.Content.Name">
+                                </div>
+                                <p class="memorial-block__item-title"><span>@photoMemorial.Caption</span></p>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Мы - гаранты надёжности" -->
+        <section class="main-safety">
+          <div class="container">
+            <div class="main-safety__heading section-heading">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">Ми - гарант надійності</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-safety__block-wrap">
+              <div class="main-safety__block">
+                <div class="main-safety__column">
+                  <div class="main-safety__item">
+                    <div class="main-safety__item-icon">
+                      <img src="./images/main-safety-icon1.png" alt="15 років досвіду">
+                    </div>
+                    <p class="main-safety__item-title">15 років досвіду</p>
+                  </div>
+                </div>
+                <div class="main-safety__column">
+                  <div class="main-safety__item">
+                    <div class="main-safety__item-icon">
+                      <img src="./images/main-safety-icon2.png" alt="Італійські матеріали">
+                    </div>
+                    <p class="main-safety__item-title">Італійські матеріали</p>
+                  </div>
+                </div>
+                <div class="main-safety__column">
+                  <div class="main-safety__item">
+                    <div class="main-safety__item-icon">
+                      <img src="./images/main-safety-icon3.png" alt="Виготовлення будь-якої cкладності">
+                    </div>
+                    <p class="main-safety__item-title">Виготовлення <span>будь-якої</span> cкладності</p>
+                  </div>
+                </div>
+                <div class="main-safety__column">
+                  <div class="main-safety__item">
+                    <div class="main-safety__item-icon">
+                      <img src="./images/main-safety-icon4.png" alt="Індивідуальний підхід">
+                    </div>
+                    <p class="main-safety__item-title">Індивідуальний підхід</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Другие виды работ" -->
+        <section class="main-works">
+          <div class="container">
+            <div class="main-works__heading section-heading light">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">@categoryOther.Title</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-works__slider">
+              <div class="main-works__block design-section__block">
+                  @foreach (var photoOther in categoryOther.Category!)
+                  {
+                      
+                      <div class="memorial-block__column">
+                          <a class="memorial-block__item" href="@photoOther.CategoryUrl.Url">
+                              <div class="memorial-block__item-image bottom">
+                                  <img src="@photoOther.CategoryPhoto.LocalCrops.Src" alt="@photoOther.CategoryPhoto.Content.Name">
+                              </div>
+                              <p class="memorial-block__item-title"><span>@photoOther.Caption</span></p>
+                          </a>
+                      </div>
+                  }
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Последние статьи" -->
+        <section class="main-articles">
+          <div class="container">
+            <div class="main-articles__heading section-heading">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">Останні статті</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-articles__block articles">
+              <article class="articles__item">
+                <a class="articles__item-image" href="#">
+                  <img src="./images/articles/articles-image1.jpg" alt="Стаття-1">
+                </a>
+                <div class="articles__item-content">
+                  <a class="articles__item-title medium-title" href="#">ЗАГОЛОВОК СТАТТІ</a>
+                  <p class="articles__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis exercitationem sed dolores incidunt libero maiores quod nisi eaque recusandae, aut, natus quam pariatur eos? Est aliquid debitis consequatur maiores magni.</p>
+                  <p class="articles__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis exercitationem sed dolores incidunt libero maiores quod nisi eaque recusandae, aut, natus quam pariatur eos? Est aliquid debitis consequatur maiores magni.</p>
+                  <a class="articles__item-link" href="#">Читати далі...</a>
+                </div>
+              </article>
+
+              <article class="articles__item">
+                <a class="articles__item-image" href="#">
+                  <img src="./images/articles/articles-image2.jpg" alt="Стаття-2">
+                </a>
+                <div class="articles__item-content">
+                  <a class="articles__item-title medium-title" href="#">ЗАГОЛОВОК СТАТТІ</a>
+                  <p class="articles__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis exercitationem sed dolores incidunt libero maiores quod nisi eaque recusandae, aut, natus quam pariatur eos? Est aliquid debitis consequatur maiores magni.</p>
+                  <p class="articles__item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis exercitationem sed dolores incidunt libero maiores quod nisi eaque recusandae, aut, natus quam pariatur eos? Est aliquid debitis consequatur maiores magni.</p>
+                  <a class="articles__item-link" href="#">Читати далі...</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция "Как оформить заказ" -->
+        <section class="main-order">
+          <div class="container">
+            <div class="main-order__heading section-heading light">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">Як оформити замовлення</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <div class="main-order__block">
+              <div class="main-order__image">
+                <img src="./images/main-order-phone-image.png" alt="Картинка телефону">
+              </div>
+              <span class="main-order__arrow">
+                <img src="./images/icons/icon-arrow-right-big.svg" alt="Стрілка">
+              </span>
+              <div class="main-order__contacts">
+                <div class="main-order__phones">
+                    @foreach (var phoneNumber in Model.OPhoneNumber)
+                    {
+                        <a class="header__phone hover-link" href="tel:@phoneNumber.Replace("+","")">@phoneNumber</a>
+                    }
+                </div>
+                <div class="main-order__times">
+                  <p class="main-order__time">Пн-Пт 9:00-18:00;</p>
+                  <p class="main-order__time">Сб 9:00-15:00;</p>
+                </div>
+              </div>
+              <span class="main-order__arrow">
+                <img src="./images/icons/icon-arrow-right-big.svg" alt="Стрілка">
+              </span>
+              <p class="main-order__description">Консультація та оформлення замовлення узгоджується зі спеціалістом за номерами</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Секция с картой -->
+        <section class="main-location" id="map">
+          <div class="container">
+            <div class="main-location__heading section-heading">
+              <span class="section-heading__decor"></span>
+              <h2 class="section-heading__title big-title">Наше місцезнаходження</h2>
+              <span class="section-heading__decor"></span>
+            </div>
+            <p class="main-location__address">
+              <img src="./images/icons/icon-location-yellow.svg" alt="Іконка локації">
+              <span>Львівська область, с. Млиниська, вул. Івана Франка, 8</span>
+            </p>
+            <div class="main-location__map-wrap">
+              <div class="main-location__map">
+                <iframe title="Гугл-карта" data-aload data-original="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1819.6075131809648!2d24.03445096782923!3d49.83656437073343!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add6917a5ad95%3A0x636af5c237930b46!2z0YPQuy4g0JjQstCw0L3QsCDQpNGA0LDQvdC60L4sIDgsINCb0YzQstC-0LIsINCb0YzQstC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwg0KPQutGA0LDQuNC90LAsIDc5MDAw!5e0!3m2!1sru!2sat!4v1657563384797!5m2!1sru!2sat" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      

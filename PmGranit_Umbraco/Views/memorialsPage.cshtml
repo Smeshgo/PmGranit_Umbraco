@@ -1,0 +1,77 @@
+﻿@{
+	Layout = "master.cshtml";
+}
+      <main class="main">
+        <!-- "Хлебные крошки" -->
+        <div class="breadcrumbs memorials-breadcrumbs">
+          <div class="container">
+            <ul class="breadcrumbs__list">
+              <li class="breadcrumbs__list-item">
+                <a class="breadcrumbs__list-link" href="index.html">Головна</a>
+              </li>
+              <li class="breadcrumbs__list-item">
+                <a class="breadcrumbs__list-link" href="#">Пам‘ятники</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Блок с типами памятников -->
+        <div class="memorials">
+          <div class="container">
+            <div class="memorials__block memorial-block">
+              <div class="memorial-block__column">
+                <a class="memorial-block__item" href="#">
+                  <div class="memorial-block__item-image bottom">
+                    <img src="./images/memorials-page/memorials-image1.png" alt="Одинарні">
+                  </div>
+                  <p class="memorial-block__item-title"><span>Одинарні</span></p>
+                </a>
+              </div>
+              <div class="memorial-block__column">
+                <a class="memorial-block__item" href="#">
+                  <div class="memorial-block__item-image">
+                    <img src="./images/memorials-page/memorials-image2.png" alt="Подвійні">
+                  </div>
+                  <p class="memorial-block__item-title"><span>Подвійні</span></p>
+                </a>
+              </div>
+              <div class="memorial-block__column">
+                <a class="memorial-block__item" href="#">
+                  <div class="memorial-block__item-image bottom">
+                    <img src="./images/memorials-page/memorials-image3.png" alt="Елітні">
+                  </div>
+                  <p class="memorial-block__item-title"><span>Елітні</span></p>
+                </a>
+              </div>
+            </div>
+
+            <!-- Пагинация -->
+            <div class="pagination">
+              <div class="container">
+                <div class="pagination__inner">
+                  <a class="pagination__button prev" href="#" aria-label="Попередній розділ"></a>
+                  <ul class="pagination__list">
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link active" href="#">1</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">2</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">3</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">...</a>
+                    </li>
+                    <li class="pagination__list-item">
+                      <a class="pagination__list-link" href="#">12</a>
+                    </li>
+                  </ul>
+                  <a class="pagination__button next" href="#" aria-label="Наступний розділ"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
